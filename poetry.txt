@@ -2,82 +2,45 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sajak Cakrawala</title>
+    <title>Poetry</title>
     <style>
-        /* 1. Tampilan Dasar (Nuansa Senja Temaram) */
         body {
             margin: 0;
-            height: 100vh;
+            background: #020408;
+            color: #d1d1d1;
+            font-family: 'Georgia', serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(to bottom, #0f172a, #1e293b); /* Gradasi malam */
-            color: #f8fafc;
-            font-family: 'Georgia', serif;
+            min-height: 100vh;
             text-align: center;
-            overflow: hidden;
         }
-
-        /* 2. Wadah Puisi */
-        .box {
-            padding: 30px;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px); /* Efek kaca transparan */
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            max-width: 80%;
-        }
-
-        /* 3. Simbol Cinta Berpijar */
-        .love-icon {
-            font-size: 40px;
-            color: #fb7185;
-            margin-bottom: 20px;
-            display: block;
-            filter: drop-shadow(0 0 10px #fb7185);
-            animation: glow 2s infinite alternate;
-        }
-
-        /* 4. Teks Puisi */
-        .puisi {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            letter-spacing: 0.5px;
-            font-style: italic;
-            color: #e2e8f0;
-        }
-
-        /* 5. Nama/Penutup */
-        .signature {
-            margin-top: 25px;
-            font-size: 0.9rem;
-            color: #94a3b8;
-            letter-spacing: 2px;
-        }
-
-        /* Animasi Cahaya */
-        @keyframes glow {
-            from { opacity: 0.5; transform: scale(1); }
-            to { opacity: 1; transform: scale(1.1); }
-        }
+        .container { padding: 20px; max-width: 600px; }
+        .heart { font-size: 50px; color: #e94560; margin-bottom: 20px; }
+        .poem { font-size: 1.3rem; line-height: 1.8; font-style: italic; }
     </style>
 </head>
 <body>
 
-    <div class="box">
-        <span class="love-icon">❤</span>
-        
-        <div class="puisi">
-            "Engkau adalah sajak yang tak sempat khatam aku tulis,<br>
-            serupa cakrawala yang memeluk bumi tanpa pernah menyentuh.<br>
-            Di sela jemarimu, aku temukan rumah paling teduh,<br>
-            tempat rindu yang riuh, akhirnya berpulang dan patuh."
-        </div>
-
-        <div class="signature">— Selamanya, Untukmu —</div>
+    <div class="container">
+        <div class="heart">❤</div>
+        <div class="poem" id="target"></div>
     </div>
 
+    <script>
+        const teks = "Engkau adalah rumah bagi seluruh riuhku, dermaga saat asing memuara. Di kedalaman matamu, aku menemukan telaga tenang. I Love You To The Moon and Back...";
+        let i = 0;
+        
+        function ngetik() {
+            if (i < teks.length) {
+                document.getElementById('target').innerHTML += teks.charAt(i);
+                i++;
+                setTimeout(ngetik, 50);
+            }
+        }
+        
+        // Langsung jalan tanpa perlu klik
+        window.onload = ngetik;
+    </script>
 </body>
 </html>
